@@ -277,7 +277,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		Connection c=null;
 		try {
 			c=DBUtils.getConnection();
-			PreparedStatement ps=c.prepareStatement("select count(*) from empleave where eid=? && status='Approved' && type=3");
+			PreparedStatement ps=c.prepareStatement("select count(*) from empleave where eid=? && status='Accepted' && type=3");
 			
 			ps.setInt(1, id);
 			ResultSet rs=ps.executeQuery();

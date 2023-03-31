@@ -1,6 +1,6 @@
 package uiPackage;
 
-import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 import daoPackage.AdminDAO;
@@ -96,6 +96,64 @@ public class UIAdmin {
 		}
 		
 	}
+	public static void approveAndRejectLeaveRequest(Scanner sc) {
+		AdminDAO adao=new AdminDAOImpl();
+		try {
+			List<String> list=adao.getListOFPendingLeaveRequest();
+			List<Integer> lid=adao.getListOfPendingLID();
+			if(list.size()==0) {
+				throw new SomeThingWentWrong("No Pending Request Available");
+			}
+			int i=1;
+			for(String st:list) {
+				System.out.println(i+"-> "+st);
+				i++;
+			}
+			
+			int choice=0;
+			int opt=0;
+			do {
+				System.out.println("Enter index of request to approve or reject Or enter 0 to exit this menu");
+				choice=sc.nextInt();
+				if(choice<0||choice>list.size()) {
+					System.out.println("Please Select Valid Option");
+				}else {
+					do {
+						System.out.println("Enter 1 to accept or 2 to reject");
+						opt=sc.nextInt();
+						if(opt!=1&&opt!=2) {
+							System.out.println("Please Choose Valid Option");
+						}else {
+							if(opt==1) {
+								System.out.println("Enter Remark to accept");
+								sc.nextLine();
+								String remark=sc.nextLine();
+								adao.acceptLeave(lid.get(choice-1),remark);
+								list.remove(choice-1);
+								lid.remove(choice-1);
+								System.out.println("Successfully Accepted the Leave Request");
+							}else {
+								System.out.println("Enter Remark to Reject");
+								sc.nextLine();
+								String remark=sc.nextLine();
+								adao.rejectLeave(lid.get(choice-1),remark);
+								list.remove(choice-1);
+								lid.remove(choice-1);
+								System.out.println("Successfully Rejected the Leave Request");
+							}
+						}
+					}while(opt!=1&&opt!=2);
+					
+				}
+				
+			}while(list.size()!=0 && choice!=0);
+		} catch (SomeThingWentWrong e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		
+	}
+	
 	public static void adminUI(Scanner sc) {
 		System.out.println("-----------Welcome Admin----------");
 		int choice=0;
@@ -128,7 +186,7 @@ public class UIAdmin {
 				changeDepartmentForEmployee(sc);
 				break;
 			case 6:
-				System.out.println("Look Into leaves request");
+				approveAndRejectLeaveRequest(sc);
 				break;
 			case 7:
 				fireEmployee(sc);

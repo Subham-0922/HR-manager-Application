@@ -13,5 +13,9 @@ public interface AdminDAO {
 	public void addEmployee(EmpDTO emp) throws SomeThingWentWrong;
 	public void updateDepartmentForEmployee(String department,String e_username) throws SomeThingWentWrong;
 	public void fireEmployee(String Username) throws SomeThingWentWrong;
+	public List<String> getListOFPendingLeaveRequest() throws SomeThingWentWrong;
+	public List<Integer> getListOfPendingLID() throws SomeThingWentWrong;
+	public void acceptLeave(int lid,String remark) throws SomeThingWentWrong;
+	public void rejectLeave(int lid,String remark) throws SomeThingWentWrong;
 	
 }
