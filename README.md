@@ -2,12 +2,12 @@
 <img align="right" src="https://user-images.githubusercontent.com/112818561/229359842-b63399b7-ea54-4f06-9779-afa6642b081c.jpg" height="200" width="200" >
 
 ***
-                                                ## Human Resource Management System  
+                      ## Human Resource Management System  
 __Project Information ->__ Human Resource Management System is a Java based Software built to store the data of employee working in a organisation and to perform various operations to get meaningful information and to alter it as well.  
   
   
 ***
-                                                           ## Users Of this Software  
+                                  ## Users Of this Software  
 ___1)Admin Of the Human Resource Management___ &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; ___2)Employees of the Company___  
 ***  
  ## __Features Of this Software is divided into two Categories__   
