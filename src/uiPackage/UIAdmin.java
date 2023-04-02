@@ -28,6 +28,7 @@ public class UIAdmin {
 	public static void viewAllDepartments() {
 		AdminDAO adao=new AdminDAOImpl();
 		try {
+			System.out.println("Showing Department Details");
 			adao.viewAllDepartments().forEach(System.out::println);
 		} catch (SomeThingWentWrong e) {
 			// TODO Auto-generated catch block
@@ -63,6 +64,7 @@ public class UIAdmin {
 		AdminDAO adao=new AdminDAOImpl();
 		try {
 			adao.addEmployee(em);
+			System.out.println("New Employee Added To Database");
 		} catch (SomeThingWentWrong e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
@@ -77,7 +79,7 @@ public class UIAdmin {
 		AdminDAO adao=new AdminDAOImpl();
 		try {
 			adao.updateDepartmentForEmployee(department, username);
-			
+			System.out.println("Details Updated For the Employee");
 		} catch (SomeThingWentWrong e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
@@ -168,7 +170,11 @@ public class UIAdmin {
 			System.out.println("Select 8 for Logging Out");
 			
 			System.out.println("Log Out");
-			choice=sc.nextInt();
+			try {
+				choice=sc.nextInt();
+			}catch(Exception e) {
+				System.out.println("Please Enter Valid Option");
+			}
 			switch(choice) {
 			case 1:
 				addDepartment(sc);
