@@ -10,11 +10,21 @@ import exceptionPackage.SomeThingWentWrong;
 public class UIMain {
 	public static int empLogIn(Scanner sc) {
 		int id=0;
+		String username="";
+		String password="";
 		System.out.println("Enter Your UserName");
-		String username=sc.next();
+		try {
+			username=sc.next();
+		}catch(Exception c){
+			System.out.println("Please Enter Valid Input");
+		}
 		
 		System.out.println("Enter Your Password");
-		String password=sc.next();
+		try {
+			password=sc.next();
+		}catch(Exception c){
+			System.out.println("Please Enter Valid Input");
+		}
 		EmployeeDAO edao=new EmployeeDAOImpl();
 		try {
 			List<String> list=edao.logInEmployee(username, password);
@@ -41,9 +51,9 @@ public class UIMain {
 			switch(choice) {
 			case 1:
 				System.out.println("Please Enter Your Admin Username");
-				String name=sc.next();
+				String name=sc.next().toLowerCase();
 				System.out.println("Please Enter Your Admin Password");
-				String pass=sc.next();
+				String pass=sc.next().toLowerCase();
 				if(name.equals("admin")&&pass.equals("admin")) {
 					UIAdmin.adminUI(sc);
 				}

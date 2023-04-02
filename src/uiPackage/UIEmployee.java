@@ -40,6 +40,7 @@ public class UIEmployee {
 		EmployeeDAO edao=new EmployeeDAOImpl();
 		try {
 			edao.changePassword(username, opass, npass, id);
+			System.out.println("Password Changed Successfully");
 		} catch (SomeThingWentWrong e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());		
@@ -49,6 +50,7 @@ public class UIEmployee {
 		EmployeeDAO edao=new EmployeeDAOImpl();
 		try {
 			return edao.getDepartmentName(id);
+			
 		} catch (SomeThingWentWrong e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
@@ -99,6 +101,7 @@ public class UIEmployee {
 	public static void knowLeaveStatus(int id) {
 		EmployeeDAO edao=new EmployeeDAOImpl();
 		try {
+			System.out.println("Showing Leave Request Status");
 			edao.showLeaveStatus(id).forEach(c->System.out.println(c));
 		} catch (SomeThingWentWrong e) {
 			// TODO Auto-generated catch block
@@ -109,6 +112,7 @@ public class UIEmployee {
 	public static void knowHistoryOfLeave(int id){
 		EmployeeDAO edao=new EmployeeDAOImpl();
 		try {
+			System.out.println("Showing Leave Request History");
 			edao.showHistoryOfLeave(id).forEach(c->System.out.println(c));
 		} catch (SomeThingWentWrong e) {
 			// TODO Auto-generated catch block
